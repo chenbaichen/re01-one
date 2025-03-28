@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品展示 - 优创智绘（上海）计算机科技服务有限公司</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0062FF',
+                        secondary: '#00B7FF'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '2px',
+                        DEFAULT: '4px',
+                        'md': '8px',
+                        'lg': '12px',
+                        'xl': '16px',
+                        '2xl': '20px',
+                        '3xl': '24px',
+                        'full': '9999px',
+                        'button': '4px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            min-height: 1024px;
+            scroll-behavior: smooth;
+        }
+        .work-card {
+            transition: transform 0.3s ease;
+        }
+        .work-card:hover {
+            transform: translateY(-8px);
+        }
+        .work-card:hover .work-overlay {
+            opacity: 1;
+        }
+        .work-overlay {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取所有导航链接
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            
+            // 为每个链接添加点击事件
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // 获取目标元素
+                    const targetId = this.getAttribute('href');
+                    
+                    // 如果是首页链接，直接滚动到顶部
+                    if (targetId === '#top') {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                        return;
+                    }
+                    
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        // 获取目标元素的位置
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                        
+                        // 获取导航栏高度
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        
+                        // 计算最终滚动位置（减去导航栏高度）
+                        const finalPosition = targetPosition - headerHeight;
+                        
+                        // 平滑滚动到目标位置
+                        window.scrollTo({
+                            top: finalPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body class="bg-white">
+    <header class="fixed w-full bg-white shadow-sm z-50">
+        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">    
+            <a href="index.html"><img src="https://image-resource.mastergo.com/152955500854569/152955500854571/4778f4f9025a8f78a1b9f0ddd4c56ae6.png" alt="logo" class="h-12"></a>
+            <div class="flex items-center space-x-8">
+                <a href="index.html" class="text-gray-700 hover:text-primary">首页</a>
+                <a href="index.html#services" class="text-gray-700 hover:text-primary">服务</a>
+                <a href="index.html#portfolio" class="text-gray-700 hover:text-primary">作品</a>
+                <a href="#industry" class="text-gray-700 hover:text-primary">行业</a>
+                <a href="#about" class="text-gray-700 hover:text-primary">关于我们</a>
+                <a href="#contact" class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-opacity-90">联系我们</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 pt-32 pb-20">
+        <div class="mb-16">
+            <h1 class="text-4xl font-bold mb-4">精选作品</h1>
+            <div class="flex items-center space-x-4 mb-8">
+                <button class="px-6 py-2 bg-primary text-white !rounded-button whitespace-nowrap">全部</button>
+                <button class="px-6 py-2 text-gray-600 hover:text-primary !rounded-button whitespace-nowrap">手机端</button>
+                <button class="px-6 py-2 text-gray-600 hover:text-primary !rounded-button whitespace-nowrap">PC 端</button>
+                <button class="px-6 py-2 text-gray-600 hover:text-primary !rounded-button whitespace-nowrap">Web 端</button>
+            </div>
+            <div class="grid grid-cols-3 gap-8">
+                <div class="work-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="relative h-[240px]">
+                        <img src="https://ai-public.mastergo.com/ai/img_res/5302a2f898fa9afce9726559a5821dbe.jpg" class="w-full h-full object-cover" alt="移动应用界面">
+                        <div class="work-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                            <a href="works.html" class="px-6 py-2 bg-white text-primary !rounded-button whitespace-nowrap">查看详情</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">智慧城市移动应用</h3>
+                        <p class="text-gray-600 mb-4">基于 Flutter 开发的城市服务综合平台，支持 iOS 和 Android 双平台</p>
+                        <div class="flex items-center space-x-2">
+                            <span class="px-3 py-1 bg-blue-100 text-primary rounded-full text-sm">移动应用</span>
+                            <span class="px-3 py-1 bg-green-100 text-secondary rounded-full text-sm">Flutter</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="relative h-[240px]">
+                        <img src="https://ai-public.mastergo.com/ai/img_res/143290c929aaadc38471eb6a168510c1.jpg" class="w-full h-full object-cover" alt="数据分析平台">
+                        <div class="work-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                            <a href="works.html" class="px-6 py-2 bg-white text-primary !rounded-button whitespace-nowrap">查看详情</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">企业数据分析平台</h3>
+                        <p class="text-gray-600 mb-4">基于 React + Electron 开发的跨平台数据分析工具</p>
+                        <div class="flex items-center space-x-2">
+                            <span class="px-3 py-1 bg-blue-100 text-primary rounded-full text-sm">桌面应用</span>
+                            <span class="px-3 py-1 bg-green-100 text-secondary rounded-full text-sm">React</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="relative h-[240px]">
+                        <img src="https://ai-public.mastergo.com/ai/img_res/7e5e4a7ebf9c5dfa12cfdeb865e497e2.jpg" class="w-full h-full object-cover" alt="电商平台">
+                        <div class="work-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                            <a href="works.html" class="px-6 py-2 bg-white text-primary !rounded-button whitespace-nowrap">查看详情</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">新零售电商平台</h3>
+                        <p class="text-gray-600 mb-4">基于 Vue.js 开发的现代化电商系统</p>
+                        <div class="flex items-center space-x-2">
+                            <span class="px-3 py-1 bg-blue-100 text-primary rounded-full text-sm">Web 应用</span>
+                            <span class="px-3 py-1 bg-green-100 text-secondary rounded-full text-sm">Vue.js</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h2 class="text-4xl font-bold mb-4">行业案例</h2>
+            <div class="flex items-center space-x-4 mb-8">
+                <button class="px-6 py-2 bg-primary text-white !rounded-button whitespace-nowrap">全部</button>
+                <button class="px-6 py-2 text-gray-600 hover:text-primary !rounded-button whitespace-nowrap">智能物联网</button>
+                <button class="px-6 py-2 text-gray-600 hover:text-primary !rounded-button whitespace-nowrap">大数据看板</button>
+                <button class="px-6 py-2 text-gray-600 hover:text-primary !rounded-button whitespace-nowrap">品牌创意</button>
+            </div>
+            <div class="grid grid-cols-3 gap-8">
+                <div class="work-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="relative h-[240px]">
+                        <img src="https://ai-public.mastergo.com/ai/img_res/2f69eb51a374773682e98dc5b7395448.jpg" class="w-full h-full object-cover" alt="智能家居平台">
+                        <div class="work-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                            <a href="works.html" class="px-6 py-2 bg-white text-primary !rounded-button whitespace-nowrap">查看详情</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">智能家居控制平台</h3>
+                        <p class="text-gray-600 mb-4">为某知名家电品牌开发的智能家居管理系统</p>
+                        <div class="flex items-center space-x-2">
+                            <span class="px-3 py-1 bg-blue-100 text-primary rounded-full text-sm">物联网</span>
+                            <span class="px-3 py-1 bg-green-100 text-secondary rounded-full text-sm">智能家居</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="relative h-[240px]">
+                        <img src="https://ai-public.mastergo.com/ai/img_res/840269702ec159104dafb53e475c3705.jpg" class="w-full h-full object-cover" alt="数据可视化平台">
+                        <div class="work-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                            <a href="works.html" class="px-6 py-2 bg-white text-primary !rounded-button whitespace-nowrap">查看详情</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">企业经营数据看板</h3>
+                        <p class="text-gray-600 mb-4">为某上市公司开发的实时数据分析展示系统</p>
+                        <div class="flex items-center space-x-2">
+                            <span class="px-3 py-1 bg-blue-100 text-primary rounded-full text-sm">数据分析</span>
+                            <span class="px-3 py-1 bg-green-100 text-secondary rounded-full text-sm">可视化</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="relative h-[240px]">
+                        <img src="https://ai-public.mastergo.com/ai/img_res/88a4f69f3bccf5520c2b05c7e60206ea.jpg" class="w-full h-full object-cover" alt="品牌官网">
+                        <div class="work-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                            <a href="works.html" class="px-6 py-2 bg-white text-primary !rounded-button whitespace-nowrap">查看详情</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">品牌形象设计</h3>
+                        <p class="text-gray-600 mb-4">为某新锐品牌打造的整体品牌形象及官网设计</p>
+                        <div class="flex items-center space-x-2">
+                            <span class="px-3 py-1 bg-blue-100 text-primary rounded-full text-sm">品牌设计</span>
+                            <span class="px-3 py-1 bg-green-100 text-secondary rounded-full text-sm">创意</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-[#0a0f1a] text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-4 gap-8 mb-8">
+                <div>
+                    <img src="https://image-resource.mastergo.com/152955500854569/152955500854571/4778f4f9025a8f78a1b9f0ddd4c56ae6.png" alt="logo" class="h-10 mb-4">
+                    <p class="text-gray-400">创造卓越的数字体验</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-medium mb-4">服务</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">UI/UX 设计</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Web 开发</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">移动应用开发</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">企业解决方案</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-medium mb-4">关于</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">公司简介</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">团队介绍</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">工作机会</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">联系我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-medium mb-4">关注我们</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-weixin"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-weibo"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8">
+                <p class="text-center text-gray-400">&copy; 2024 All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 
