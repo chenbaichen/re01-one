@@ -75,6 +75,8 @@ background: linear-gradient(135deg, #0062FF 0%, #00B7FF 100%);
 document.addEventListener('DOMContentLoaded', function() {
     // 获取所有导航链接
     const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    const header = document.querySelector('header');
+    const headerHeight = header ? header.offsetHeight : 0;
     
     // 为每个链接添加点击事件
     navLinks.forEach(link => {
@@ -93,23 +95,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
+            // 获取目标元素
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
-                // 获取目标元素的位置
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                
-                // 获取导航栏高度
-                const headerHeight = document.querySelector('header').offsetHeight;
-                
-                // 计算最终滚动位置（减去导航栏高度）
-                const finalPosition = targetPosition - headerHeight;
-                
-                // 平滑滚动到目标位置
-                window.scrollTo({
-                    top: finalPosition,
-                    behavior: 'smooth'
-                });
+                try {
+                    // 获取目标元素的位置
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    
+                    // 计算最终滚动位置（减去导航栏高度）
+                    const finalPosition = targetPosition - headerHeight;
+                    
+                    // 平滑滚动到目标位置
+                    window.scrollTo({
+                        top: finalPosition,
+                        behavior: 'smooth'
+                    });
+                } catch (error) {
+                    console.error('滚动出错:', error);
+                }
             }
         });
     });
