@@ -52,6 +52,7 @@ body {
 .portfolio-overlay {
   opacity: 0;
   transition: opacity 0.3s ease;
+  background: linear-gradient(to bottom, rgba(0, 98, 255, 0.8), rgba(0, 183, 255, 0.8));
 }
 .portfolio-item:hover .portfolio-overlay {
   opacity: 1;
@@ -61,9 +62,343 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+/* 移动端菜单样式 */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  z-index: 100;
+  padding: 1rem;
+}
+.mobile-menu.active {
+  display: block;
+}
+/* 响应式样式 */
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+  .mobile-menu-button {
+    display: block;
+  }
+  .mobile-menu .flex.flex-col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  .mobile-menu a {
+    font-size: 0.75rem;
+    white-space: nowrap;
+    text-align: center;
+  }
+  .mobile-menu a:last-child {
+    grid-column: span 2;
+  }
+  /* 移动端导航栏优化 */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    z-index: 50;
+  }
+  header .h-12 {
+    height: 3rem;
+    width: auto;
+    max-width: 20%;
+    object-fit: contain;
+  }
+  .py-4 {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+  .bg-primary {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+  .space-x-8 {
+    margin-left: 0.125rem;
+    margin-right: 0.125rem;
+    letter-spacing: -0.025em;
+  }
+  /* 为固定顶栏添加内容偏移 */
+  body {
+    padding-top: 3.5rem;
+  }
+  .hero-bg {
+    margin-top: -3.5rem;
+  }
+  .text-5xl {
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+  .text-4xl {
+    font-size: 1.125rem;
+    line-height: 1.3;
+  }
+  .text-2xl {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+  .text-xl {
+    font-size: 0.875rem;
+    line-height: 1.3;
+  }
+  .text-lg {
+    font-size: 0.75rem;
+    line-height: 1.3;
+  }
+  /* 移动端容器调整 */
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  /* 移动端图片优化 */
+  .portfolio-item img {
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+  }
+  .industry-card img {
+    height: 160px;
+    object-fit: cover;
+  }
+  .about-image {
+    height: 200px;
+    object-fit: cover;
+  }
+  /* 移动端间距调整 */
+  .py-20 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  .gap-8 {
+    gap: 0.75rem;
+  }
+  .gap-12 {
+    gap: 1rem;
+  }
+  /* 移动端卡片样式 */
+  .service-card {
+    padding: 0.75rem;
+  }
+  .service-card .grid {
+    gap: 0.5rem;
+  }
+  .service-card .p-4 {
+    padding: 0.5rem;
+  }
+  /* 移动端按钮样式 */
+  .px-8 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  .py-3 {
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+  }
+  /* 移动端表单样式 */
+  .p-8 {
+    padding: 0.75rem;
+  }
+  /* 移动端统计数据样式 */
+  .grid-cols-3 {
+    gap: 0.5rem;
+  }
+  /* 移动端页脚样式 */
+  .grid-cols-4 {
+    gap: 1rem;
+  }
+  .py-12 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  /* 移动端服务板块优化 */
+  #services .grid-cols-2 {
+    display: flex;
+    flex-direction: column;
+  }
+  #services .service-card {
+    margin-bottom: 0.75rem;
+  }
+  #services .service-card:last-child {
+    margin-bottom: 0;
+  }
+  /* 移动端行业案例优化 */
+  #industry .grid-cols-3 {
+    display: flex;
+    flex-direction: column;
+  }
+  #industry .industry-card {
+    margin-bottom: 0.75rem;
+  }
+  #industry .industry-card:last-child {
+    margin-bottom: 0;
+  }
+  /* 移动端关于我们优化 */
+  #about .mt-20 {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  #about .mt-20 .bg-white {
+    margin-bottom: 0;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  #about .mt-20 .bg-white i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+  #about .mt-20 .bg-white h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  #about .mt-20 .bg-white p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+  /* 移动端联系我们优化 */
+  #contact .grid-cols-2 {
+    display: flex;
+    flex-direction: column;
+  }
+  #contact .bg-white {
+    margin-bottom: 0.75rem;
+  }
+  #contact .bg-white:last-child {
+    margin-bottom: 0;
+  }
+  /* 移动端精选作品优化 */
+  #portfolio .grid-cols-3 {
+    display: flex;
+    flex-direction: column;
+  }
+  #portfolio .portfolio-item {
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  #portfolio .portfolio-item:last-child {
+    margin-bottom: 0;
+  }
+  #portfolio .portfolio-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 98, 255, 0.9), rgba(0, 183, 255, 0.7));
+    padding: 1rem;
+    transform: translateY(0);
+    opacity: 1;
+  }
+  #portfolio .portfolio-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  #portfolio .portfolio-item p {
+    font-size: 0.875rem;
+  }
+  /* 移动端创新驱动等板块优化 */
+  #about .mt-20 .grid-cols-3 {
+    display: flex;
+    flex-direction: column;
+  }
+  #about .mt-20 .bg-white {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+  }
+  #about .mt-20 .bg-white:last-child {
+    margin-bottom: 0;
+  }
+  #about .mt-20 .bg-white i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  #about .mt-20 .bg-white h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  #about .mt-20 .bg-white p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+  /* 移动端页脚优化 */
+  footer .h-10 {
+    height: 1.125rem;
+    width: auto;
+    max-width: none;
+    object-fit: contain;
+  }
+  footer .space-y-2 {
+    margin-top: 0.25rem;
+  }
+  footer .text-lg {
+    font-size: 0.875rem;
+  }
+  footer .text-gray-400 {
+    font-size: 0.75rem;
+  }
+  footer .flex.space-x-4 {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  footer .flex.space-x-4 a {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  footer .flex.space-x-4 a i {
+    font-size: 1.5rem;
+  }
+  /* 移动端banner优化 */
+  .hero-bg {
+    background-image: url('https://img.picui.cn/free/2025/04/03/67ee4a13648d4.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+  }
+  .hero-bg .container {
+    padding-top: 3rem;
+  }
+  .hero-bg h1 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .hero-bg p {
+    font-size: 0.875rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+}
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    // 移动端菜单切换
+    const menuButton = document.querySelector('.mobile-menu-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const closeButton = document.querySelector('.close-menu');
+    
+    menuButton.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+    });
+    
+    closeButton.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+    });
+    
     // 获取所有导航链接
     const navLinks = document.querySelectorAll('nav a[href^="#"]');
     
@@ -102,6 +437,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     top: finalPosition,
                     behavior: 'smooth'
                 });
+                
+                // 关闭移动端菜单
+                mobileMenu.classList.remove('active');
             }
         });
     });
@@ -112,7 +450,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <header class="fixed w-full bg-white shadow-sm z-50">
 <nav class="container mx-auto px-6 py-4 flex items-center justify-between">    
 <a href="#top"><img src="https://img.picui.cn/free/2025/04/03/67ee4a1131964.png" alt="logo" class="h-12"></a>
-<div class="flex items-center space-x-8">
+<!-- 桌面端菜单 -->
+<div class="desktop-menu flex items-center space-x-8">
 <a href="#top" class="text-gray-700 hover:text-primary">首页</a>
 <a href="#services" class="text-gray-700 hover:text-primary">服务</a>
 <a href="#portfolio" class="text-gray-700 hover:text-primary">作品</a>
@@ -120,12 +459,35 @@ document.addEventListener('DOMContentLoaded', function() {
 <a href="#about" class="text-gray-700 hover:text-primary">关于我们</a>
 <a href="#contact" class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-opacity-90">联系我们</a>
 </div>
+<!-- 移动端菜单按钮 -->
+<button class="mobile-menu-button hidden">
+<i class="fas fa-bars text-2xl text-gray-700"></i>
+</button>
 </nav>
 </header>
+
+<!-- 移动端菜单 -->
+<div class="mobile-menu">
+<div class="flex justify-between items-center mb-8">
+<img src="https://img.picui.cn/free/2025/04/03/67ee4a1131964.png" alt="logo" class="h-10">
+<button class="close-menu">
+<i class="fas fa-times text-2xl text-gray-700"></i>
+</button>
+</div>
+<div class="flex flex-col space-y-4">
+<a href="#top" class="text-gray-700 hover:text-primary text-lg">首页</a>
+<a href="#services" class="text-gray-700 hover:text-primary text-lg">服务</a>
+<a href="#portfolio" class="text-gray-700 hover:text-primary text-lg">作品</a>
+<a href="#industry" class="text-gray-700 hover:text-primary text-lg">行业</a>
+<a href="#about" class="text-gray-700 hover:text-primary text-lg">关于我们</a>
+<a href="#contact" class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-opacity-90 text-center">联系我们</a>
+</div>
+</div>
+
 <section class="hero-bg relative min-h-[50vh] flex items-center">
 <div class="container mx-auto px-6 flex items-center relative h-full">
 <div class="w-full text-white relative z-10">
-<h1 class="text-5xl font-bold leading-tight mb-6 whitespace-nowrap">优创智绘（上海）计算机科技服务有限公司</h1>
+<h1 class="text-5xl font-bold leading-tight mb-6">优创智绘（上海）计算机科技服务有限公司</h1>
 <p class="text-xl mb-8 opacity-90">我们将创意设计与技术开发完美结合，为您打造独特的数字体验</p>
 <a href="works.html" class="inline-block bg-white text-primary px-8 py-3 !rounded-button font-medium hover:bg-opacity-90">探索我们的作品</a>
 </div>
@@ -227,7 +589,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p class="text-gray-600 text-center mb-12">深耕行业解决方案，打造标杆案例</p>
 <div class="grid grid-cols-3 gap-8">
 <a href="works.html" class="group">
-<div class="bg-white rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:-translate-y-2">
+<div class="bg-white rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:-translate-y-2 industry-card">
 <img src="https://ai-public.mastergo.com/ai/img_res/77a71ea5cbc03a346b6bf69b54b39b47.jpg" class="w-full" alt="智能物联网">
 <div class="p-6">
 <h3 class="text-xl font-bold mb-2">智能物联网</h3>
@@ -278,9 +640,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="container mx-auto px-6">
 <h2 class="text-4xl font-bold text-center mb-4">关于我们</h2>
 <p class="text-gray-600 text-center mb-12">专注于创造卓越的数字体验</p>
-<div class="grid grid-cols-2 gap-12 items-center">
-<div>
-<img src="https://ai-public.mastergo.com/ai/img_res/37a3e425e3fa4b97cf31cefcf9080e0b.jpg" class="w-full rounded-lg" alt="团队照片">
+<div class="flex flex-col gap-12">
+<div class="w-full">
+<img src="https://ai-public.mastergo.com/ai/img_res/37a3e425e3fa4b97cf31cefcf9080e0b.jpg" class="w-full rounded-lg about-image" alt="团队照片">
 </div>
 <div>
 <h3 class="text-2xl font-bold mb-6">我们的故事</h3>
