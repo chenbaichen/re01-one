@@ -46,19 +46,24 @@ scroll-behavior: smooth;
 background-image: url('https://image-resource.mastergo.com/152955500854569/152955500854571/b6cf4ff0e159fe58116146b4ceecd1bf.png');
 background-size: cover;
 background-position: center;
-position: relative;
+background-repeat: no-repeat;
 }
 .service-card:hover {
 transform: translateY(-8px);
 transition: all 0.3s ease;
 }
-.portfolio-item:hover .portfolio-overlay {
-opacity: 1;
+.portfolio-item {
+transition: transform 0.3s ease;
+}
+.portfolio-item:hover {
+transform: translateY(-8px);
 }
 .portfolio-overlay {
-background: linear-gradient(135deg, rgba(0,98,255,0.95) 0%, rgba(157,23,255,0.95) 100%);
 opacity: 0;
-transition: all 0.3s ease;
+transition: opacity 0.3s ease;
+}
+.portfolio-item:hover .portfolio-overlay {
+opacity: 1;
 }
 .gradient-text {
 background: linear-gradient(135deg, #0062FF 0%, #00B7FF 100%);
@@ -114,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <body>
 <header class="fixed w-full bg-white shadow-sm z-50">
 <nav class="container mx-auto px-6 py-4 flex items-center justify-between">    
-<a href="#"><img src="https://image-resource.mastergo.com/152955500854569/152955500854571/4778f4f9025a8f78a1b9f0ddd4c56ae6.png" alt="logo" class="h-12"></a>
+<a href="#top"><img src="https://image-resource.mastergo.com/152955500854569/152955500854571/4778f4f9025a8f78a1b9f0ddd4c56ae6.png" alt="logo" class="h-12"></a>
 <div class="flex items-center space-x-8">
 <a href="#top" class="text-gray-700 hover:text-primary">首页</a>
 <a href="#services" class="text-gray-700 hover:text-primary">服务</a>
@@ -125,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 </nav>
 </header>
-<section class="hero-bg h-[50vh] pt-32 pb-20 relative overflow-hidden">
+<section class="hero-bg relative min-h-[50vh] flex items-center">
 <div class="container mx-auto px-6 flex items-center relative h-full">
 <div class="w-full text-white relative z-10">
 <h1 class="text-5xl font-bold leading-tight mb-6 whitespace-nowrap">优创智绘（上海）计算机科技服务有限公司</h1>
