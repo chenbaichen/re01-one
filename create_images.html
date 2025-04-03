@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建图片</title>
+</head>
+<body>
+    <h1>创建图片</h1>
+    
+    <h2>Logo</h2>
+    <canvas id="logoCanvas" width="200" height="100" style="border:1px solid #000;"></canvas>
+    <br>
+    <button onclick="downloadImage('logoCanvas', 'logo.png')">下载Logo</button>
+    
+    <h2>Banner</h2>
+    <canvas id="bannerCanvas" width="1200" height="600" style="border:1px solid #000;"></canvas>
+    <br>
+    <button onclick="downloadImage('bannerCanvas', 'banner.jpg')">下载Banner</button>
+    
+    <script>
+        // 创建Logo
+        const logoCanvas = document.getElementById('logoCanvas');
+        const logoCtx = logoCanvas.getContext('2d');
+        
+        // 设置背景
+        logoCtx.fillStyle = '#0062FF';
+        logoCtx.fillRect(0, 0, 200, 100);
+        
+        // 添加文字
+        logoCtx.fillStyle = 'white';
+        logoCtx.font = 'bold 24px Arial';
+        logoCtx.textAlign = 'center';
+        logoCtx.textBaseline = 'middle';
+        logoCtx.fillText('优创智绘', 100, 50);
+        
+        // 创建Banner
+        const bannerCanvas = document.getElementById('bannerCanvas');
+        const bannerCtx = bannerCanvas.getContext('2d');
+        
+        // 创建渐变背景
+        const gradient = bannerCtx.createLinearGradient(0, 0, 1200, 600);
+        gradient.addColorStop(0, '#0062FF');
+        gradient.addColorStop(1, '#00B7FF');
+        bannerCtx.fillStyle = gradient;
+        bannerCtx.fillRect(0, 0, 1200, 600);
+        
+        // 添加文字
+        bannerCtx.fillStyle = 'white';
+        bannerCtx.font = 'bold 48px Arial';
+        bannerCtx.textAlign = 'center';
+        bannerCtx.textBaseline = 'middle';
+        bannerCtx.fillText('优创智绘（上海）计算机科技服务有限公司', 600, 300);
+        
+        // 下载图片函数
+        function downloadImage(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            let link = document.createElement('a');
+            link.download = filename;
+            
+            if (filename.endsWith('.png')) {
+                link.href = canvas.toDataURL('image/png');
+            } else {
+                link.href = canvas.toDataURL('image/jpeg', 0.8);
+            }
+            
+            link.click();
+        }
+    </script>
+</body>
+</html> 
