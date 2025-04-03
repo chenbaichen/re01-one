@@ -11,7 +11,42 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/css/glide.core.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/css/glide.theme.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0062FF',
+            secondary: '#00B7FF'
+          },
+          borderRadius: {
+            'button': '4px'
+          }
+        }
+      }
+    }
+    </script>
+    <style>
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+      min-height: 1024px;
+      scroll-behavior: smooth;
+    }
+    .work-card {
+      transition: transform 0.3s ease;
+    }
+    .work-card:hover {
+      transform: translateY(-8px);
+    }
+    .work-card:hover .work-overlay {
+      opacity: 1;
+    }
+    .work-overlay {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    </style>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // 获取所有导航链接
